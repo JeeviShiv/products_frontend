@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './componets/Home';
+import Products from './componets/Products';
+import Category from './componets/Category';
+import AddCategory from './componets/AddCategory';
+import EditCategory from './componets/EditCategory';
+import AddProduct from './componets/AddProduct';
+import EditProduct from './componets/EditProduct';
+import ViewProduct from './componets/ViewProduct';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+          <Route path="/" exact element={ <Home />}  />
+          <Route path="/addProduct" element={ <AddProduct />}  />
+          <Route path="/editProduct/:id" element={<EditProduct />}  /> 
+          <Route path="/viewProduct/:id" element={<ViewProduct />}  /> 
+          <Route path="/products" element={ <Products />}  />
+          <Route path="/editCategory/:id" element={<EditCategory />}  />
+          <Route path="/addCategory" element={<AddCategory />}  />
+          <Route path="/category" element={ <Category />}  />
+        </Routes>
+    </Router>
   );
 }
 
